@@ -1,0 +1,6 @@
+- hosts: all
+  roles:
+#     - { role: patch, when: ansible_distribution == 'CentOS' }
+     - role: patch_reboot  
+  become: true
+  become_user: root

@@ -1,3 +1,4 @@
 ---
 # vars file for patching
   this_var: '{{ some_var }}'
+  service_to_restart: '{{ service_to_restart }}'

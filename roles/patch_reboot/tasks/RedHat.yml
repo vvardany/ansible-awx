@@ -1,26 +1,23 @@
 ---
   - name: "Stopping httpd"
     service: 
-      name: httpd 
+      name: service_to_restart
       state: stopped
 
   - name: "Installing updates using yum"
     yum:
-      name: "mc"
-      state: absent
-      #state: latest
-      #update_only: "yes"
+      name: "*"
+      state: latest
+      update_only: "yes"
     register: update_result
 
   - name: "Printing yum update results"
     debug:
       msg: "{{ update_result.results }}"
     
-##########################################################################
-
   - block:
       - name: "Reboot if there was a change"
-        shell: "sleep 5 && reboot"
+        shell: "sleep 5 && /usr/sbin/reboot"
         async: 1
         poll: 0
 
@@ -34,8 +31,6 @@
       - update_result is changed
       - ansible_uptime_seconds > 86400
 
-##########################################################################
-
   - name: "Check server uptime"
     shell: "uptime | awk '{print $3,$4}'"
     register: uptime
@@ -46,7 +41,7 @@
 
   - name: "Starting httpd"
     service: 
-      name: httpd 
+      name: service_to_restart
       state: started
 
   - name: "Make sure HTTP is running before proceeding"

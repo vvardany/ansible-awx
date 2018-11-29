@@ -1,5 +1,5 @@
 ---
-  - name: "Stopping httpd"
+  - name: "Stopping {{ service_to_restart }}"
     service: 
       name: "{{ service_to_restart }}"
       state: stopped
@@ -39,7 +39,7 @@
     debug:
       msg: "{{ uptime.stdout }}"
 
-  - name: "Starting httpd"
+  - name: "Starting {{ service_to_restart }}"
     service: 
       name: "{{ service_to_restart }}"
       state: started

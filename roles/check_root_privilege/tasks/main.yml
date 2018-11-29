@@ -1,8 +1,8 @@
 ---
   - name: "Check reboot privilege"
     command: sudo -l
-    args:
-      warn: false
+    #    args:
+    #  warn: false
     register: result_sudo
   - debug: msg="{{ result_sudo.stdout }}"
   - fail: msg="Reboot privilege missing!"

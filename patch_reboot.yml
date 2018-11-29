@@ -1,8 +1,7 @@
 - hosts: all
   roles:
 #     - { role: patch, when: ansible_distribution == 'CentOS' }
-     - role: check_root_privilege
-       register: result_check_root_privilege
-     - { role: patch_reboot,  when: result_check_root_privilege|succeeded }
+     - check_root_privilege
+     - patch_reboot
   become: true
   become_user: root

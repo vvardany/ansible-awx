@@ -6,11 +6,15 @@
 
   - name: "Installing updates using yum"
     yum:
-      name: "*"
+      name: "mc"
       state: latest
       update_only: "yes"
     register: update_result
 
+  - name: Printing some text here
+    debug:
+      msg: "{{ update_result.results }}"
+    
 ##########################################################################
 
   - block:
@@ -58,11 +62,6 @@
     when: inventory_hostname == ansible_play_hosts[0]
     delegate_to: localhost 
 
-  - name: Printing some text here
-    debug:
-      msg: "{{ update_result.results }}"
-    when: inventory_hostname == ansible_play_hosts[0]
-    
   - name: Echo some variable
     shell: echo "{{ some_var }}" | tee /tmp/some_var_file
 

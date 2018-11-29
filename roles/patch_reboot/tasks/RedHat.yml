@@ -1,7 +1,7 @@
 ---
   - name: "Stopping httpd"
     service: 
-      name: service_to_restart
+      name: "{{ service_to_restart }}"
       state: stopped
 
   - name: "Installing updates using yum"
@@ -41,7 +41,7 @@
 
   - name: "Starting httpd"
     service: 
-      name: service_to_restart
+      name: "{{ service_to_restart }}"
       state: started
 
   - name: "Make sure HTTP is running before proceeding"

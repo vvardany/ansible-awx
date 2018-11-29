@@ -1,0 +1,2 @@
+[Test]
+awx-client1 ansible_host=10.0.2.8

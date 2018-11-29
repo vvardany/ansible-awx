@@ -6,12 +6,13 @@
 
   - name: "Installing updates using yum"
     yum:
-      name: "mc"
-      state: latest
+      name: ""
+      state: absent
+      #state: latest
       #update_only: "yes"
     register: update_result
 
-  - name: Printing some text here
+  - name: "Printing yum update results"
     debug:
       msg: "{{ update_result.results }}"
     

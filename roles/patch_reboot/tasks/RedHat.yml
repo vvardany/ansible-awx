@@ -1,11 +1,11 @@
 ---
-#  - name: "Check reboot privilege"
-#    command: sudo -l
-#    register: sudo
-#  - debug: msg="{{ sudo.stdout }}"
-#  - fail: msg="Reboot privilege missing!"
-#    when: not(sudo.stdout.find('reboot') != -1)
-#
+  - name: "Check reboot privilege"
+    command: sudo -l
+    register: sudo
+  - debug: msg="{{ sudo.stdout }}"
+  - fail: msg="Reboot privilege missing!"
+    when: not(sudo.stdout.find('reboot') != -1)
+
 ##########################################################################
 
   - name: "Stopping httpd"
@@ -62,10 +62,10 @@
 
 
 ### For Testing purposes 
-- name: Pinging from Ansible server to {{ inventory_hostname }}
-  shell: hostname && ping -c 3 {{ ansible_default_ipv4.address }}
-  when: inventory_hostname == ansible_play_hosts[0]
-  delegate_to: localhost 
+#- name: Pinging from Ansible server to {{ inventory_hostname }}
+#  shell: hostname && ping -c 3 {{ ansible_default_ipv4.address }}
+#  when: inventory_hostname == ansible_play_hosts[0]
+#  delegate_to: localhost 
 
 - name: Printing some text here
   debug:

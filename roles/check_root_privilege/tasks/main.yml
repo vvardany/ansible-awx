@@ -1,0 +1,7 @@
+---
+  - name: "Check reboot privilege"
+    command: sudo -l
+    register: sudo
+  - debug: msg="{{ sudo.stdout }}"
+  - fail: msg="Reboot privilege missing!"
+    when: not(sudo.stdout.find('ALL') != -1)

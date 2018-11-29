@@ -1,13 +1,4 @@
 ---
-  - name: "Check reboot privilege"
-    command: sudo -l
-    register: sudo
-  - debug: msg="{{ sudo.stdout }}"
-  - fail: msg="Reboot privilege missing!"
-    when: not(sudo.stdout.find('reboot') != -1)
-
-##########################################################################
-
   - name: "Stopping httpd"
     service: 
       name: httpd 

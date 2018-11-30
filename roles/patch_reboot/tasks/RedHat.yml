@@ -32,7 +32,7 @@
       - ansible_uptime_seconds > 86400
 
   - name: "Check server uptime"
-    shell: "uptime | awk '{print $3,$4}'"
+    shell: "uptime -p"
     register: uptime
 
   - name: "Print uptime"

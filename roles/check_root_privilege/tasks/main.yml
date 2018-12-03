@@ -8,5 +8,5 @@
 
   - debug: msg="{{ result_sudo.stdout }}"
   - fail: msg="Reboot privilege missing!"
-    when: not(result_sudo.stdout.find('ALL') != -1) #or
+    when: not(result_sudo.stdout.find('qaq') != -1) #or
           #not(result_sudo.stdout.find('(ALL) NOPASSWD":" ALL') != -1)

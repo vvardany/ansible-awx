@@ -8,6 +8,10 @@
 
   - debug: msg="{{ result_sudo.stdout }}"
   - fail: msg="Reboot privilege missing!"
-    when: ("(ALL) ALL" not in result_sudo.stdout) or
+    #when: ("(ALL) ALL" not in result_sudo.stdout) or
+  #      ("(ALL) NOPASSWD" not in result_sudo.stdout) or
+  #        ("reboot" not in result_sudo.stdout)
+
+    when: (ALL not in result_sudo.stdout) or
           ("(ALL) NOPASSWD" not in result_sudo.stdout) or
           ("reboot" not in result_sudo.stdout)

@@ -13,4 +13,4 @@
   #        ("reboot" not in result_sudo.stdout)
 
     when: ("(ALL) ALL" not in result_sudo.stdout) or
-          ("(ALL) ALL" not in result_sudo.stdout)                    
+          ("reboot" not in result_sudo.stdout)                    

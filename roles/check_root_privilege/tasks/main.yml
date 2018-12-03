@@ -6,4 +6,4 @@
     register: result_sudo
   - debug: msg="{{ result_sudo.stdout }}"
   - fail: msg="Reboot privilege missing!"
-    when: not(result_sudo.stdout.find('something') != -1)
+    when: not(result_sudo.stdout.find('ALL') != -1)

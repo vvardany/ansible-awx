@@ -4,5 +4,5 @@
 #     - { role: patch, when: ansible_distribution == 'CentOS' }
 #     - check_root_privilege
      - patch_reboot
-  become: true
+  become: yes
   become_user: root

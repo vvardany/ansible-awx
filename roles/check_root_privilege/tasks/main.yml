@@ -12,6 +12,6 @@
   #      ("(ALL) NOPASSWD" not in result_sudo.stdout) or
   #        ("reboot" not in result_sudo.stdout)
 
-    when: (ALL not in result_sudo.stdout) or
+    when: ("ALL" not in result_sudo.stdout) or
           ("(ALL) NOPASSWD" not in result_sudo.stdout) or
           ("reboot" not in result_sudo.stdout)

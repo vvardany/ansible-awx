@@ -1,5 +1,5 @@
 ---
-  - name: "Check reboot privilege"
+  - name: Check reboot privilege
     command: sudo -l
     args:
       warn: false
@@ -9,5 +9,5 @@
   - debug: msg="{{ result_sudo.stdout }}"
   - fail: msg="Reboot privilege missing!"
     when: '"(ALL) ALL" not in result_sudo.stdout' or
-          '"(ALL) NOPASSWD: ALL" not in result_sudo.stdout' or
+          '"(ALL) NOPASSWD ALL" not in result_sudo.stdout' or
           '"reboot" not in result_sudo.stdout'

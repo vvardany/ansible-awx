@@ -1,8 +1,8 @@
 ---
   - name: Show facts
     debug:
-      msg: "{{ inventory_hostname }} ### {{ ansible_play_hosts[-1] }} ### {{ ansible_play_hosts[0] }} ### {{ ansible_play_hosts[1] }}"
+      msg: "Invhostname={{ inventory_hostname }} #play-1={{ ansible_play_hosts[-1] }} #play0={{ ansible_play_hosts[0] }} #play1={{ ansible_play_hosts[1] }}"
 
   - name: testing inventory hostname
     shell: echo Hello
-    when: inventory_hostname == ansible_play_hosts[1]
+    when: inventory_hostname == ansible_play_hosts[0]

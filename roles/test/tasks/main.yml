@@ -1,4 +1,4 @@
 ---
   - name: testing inventory hostname
     shell: echo Hello
-    when: inventory_hostname == ansible_play_hosts[0]
+    when: inventory_hostname == ansible_play_hosts[1]

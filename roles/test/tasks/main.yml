@@ -3,10 +3,10 @@
     debug:
       msg: "Invhostname={{ inventory_hostname }} #play-1={{ ansible_play_hosts[-1] }} #play0={{ ansible_play_hosts[0] }} #play1={{ ansible_play_hosts[1] }}"
 
-  - name: Inventory_hostname {{ Inventory_hostname }}, ansible_play_hosts[0]={{ ansible_play_hosts[0] }}
+  - name: Inventory_hostname '{{ Inventory_hostname }}', ansible_play_hosts[0]='{{ ansible_play_hosts[0] }}'
     shell: echo "Hello-When hosts=0"
     when: inventory_hostname == ansible_play_hosts[0]
 
-  - name: Inventory_hostname {{ Inventory_hostname }}, ansible_play_hosts[-1]={{ ansible_play_hosts[-1] }}
+  - name: Inventory_hostname '{{ Inventory_hostname }}', ansible_play_hosts[-1]='{{ ansible_play_hosts[-1] }}'
     shell: echo "Hello-When hosts=-1"
     when: inventory_hostname == ansible_play_hosts[-1]

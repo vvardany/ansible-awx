@@ -13,4 +13,4 @@
 
   - name: Show ansible_user_id
     debug:
-      msg: "Invhostname={{ ansible_user_id }}
+      msg: "Invhostname={{ ansible_user_id }}"

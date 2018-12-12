@@ -13,4 +13,8 @@
 
   - name: Show ansible_user_id
     debug:
-      msg: "Invhostname={{ ansible_user_id }}"
+      msg: "User ID = {{ ansible_user_id }}"
+
+  - name: Show env USER
+    debug:
+      msg: "env USER = {{ lookup('env','USER') }}"

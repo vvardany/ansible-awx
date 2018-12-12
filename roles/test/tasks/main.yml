@@ -15,6 +15,6 @@
     debug:
       msg: "User ID = {{ ansible_user_id }}"
 
-  - name: Show env USER
+  - name: Show sudo USER
     debug:
-      msg: "env USER = {{ lookup('env','USER') }}"
+      msg: "sudo USER = {{ ansible_env.SUDO_USER }}"
